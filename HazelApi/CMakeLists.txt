@@ -7,8 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_compile_definitions(HZ_PLATFORM_WINDOWS HZ_BUILD_DLL)
 
-add_library(HazelApi SHARED src/HazelApi/core.h src/HazelApi/application.h src/HazelApi/entryPoint.h src/HazelApi/application.cpp src/hazel.h)
+add_library(${PROJECT_NAME} SHARED src/HazelApi/core.h src/HazelApi/application.h src/HazelApi/entryPoint.h src/HazelApi/log.h src/HazelApi/application.cpp src/HazelApi/log.cpp src/hazel.h)
 
-target_include_directories(HazelApi PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src/HazelApi")
-
-#target_compile_definitions(HazelApi PUBLIC HAZEL_API_VERSION=4)
+target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src/HazelApi" "${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include")

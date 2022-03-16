@@ -3,6 +3,7 @@
 
 // For use by Hazel applications
 #include "HazelApi/application.h"
+#include "HazelApi/log.h"
 
 
 // ---- ENTRY POINT -----
