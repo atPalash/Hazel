@@ -7,6 +7,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_compile_definitions(HZ_PLATFORM_WINDOWS HZ_BUILD_DLL)
 
-add_library(${PROJECT_NAME} SHARED src/HazelApi/core.h src/HazelApi/application.h src/HazelApi/entryPoint.h src/HazelApi/log.h src/HazelApi/application.cpp src/HazelApi/log.cpp src/hazel.h)
+file(GLOB_RECURSE SOURCES src/*.cpp)
+file(GLOB_RECURSE HEADERS src/*.h)
 
-target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src/HazelApi" "${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include")
+add_library(${PROJECT_NAME} SHARED ${HEADERS} ${SOURCES})
+target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src" "${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include")
+
+
+## Need to check if we need to include spdlog here
+#target_link_directories(${PROJECT_NAME} PUBLIC spdlog/src)
+
+#target_link_libraries(${PROJECT_NAME} PUBLIC spdlog)
