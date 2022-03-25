@@ -2,6 +2,7 @@
 #define APPLICATIONEVENT_H
 
 #include "HazelApi/Events/event.h"
+#include <sstream>
 
 namespace HazelApi {
 
