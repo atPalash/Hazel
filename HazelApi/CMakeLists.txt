@@ -36,5 +36,5 @@ target_link_libraries(${PROJECT_NAME} PRIVATE glfw ${OPENGL_gl_LIBRARY})
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
   COMMAND "${CMAKE_COMMAND}" -E copy
      $<TARGET_FILE:${PROJECT_NAME}>
-     ../Sandbox/libHazelApi.dll
+     ../Sandbox/Debug/HazelApi.dll
   COMMENT "Copying to output directory")
