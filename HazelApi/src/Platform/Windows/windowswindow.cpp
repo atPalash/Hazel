@@ -5,6 +5,7 @@
 #include "HazelApi/Events/applicationEvent.h"
 #include "HazelApi/Events/keyEvent.h"
 #include "HazelApi/Events/mouseEvent.h"
+#include <glad/glad.h>
 
 namespace HazelApi {
 
@@ -46,12 +47,12 @@ namespace HazelApi {
             glfwSetErrorCallback(GLFWErrorCallback);
         }
 
-        {
-            m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-            glfwMakeContextCurrent(m_Window);
-            glfwSetWindowUserPointer(m_Window, &m_Data);
-            SetVSync(true);
-        }
+        m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+        glfwMakeContextCurrent(m_Window);
+        int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+        HZ_CORE_ASSERT(status, "Failed to initialize glad");
+        glfwSetWindowUserPointer(m_Window, &m_Data);
+        SetVSync(true);
 
         // Set GLFW callbacks
         glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)

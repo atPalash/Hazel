@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_compile_definitions(HZ_PLATFORM_WINDOWS HZ_BUILD_DLL)
 add_subdirectory(vendor/spdlog)
 add_subdirectory(vendor/GLFW)
+add_subdirectory(vendor/Glad)
 
 file(GLOB_RECURSE SOURCES src/*.cpp)
 file(GLOB_RECURSE HEADERS src/*.h)
@@ -28,10 +29,11 @@ target_include_directories(${PROJECT_NAME}
     PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src"
     PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include"
     PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/vendor/GLFW/include"
+    PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/vendor/Glad/include"
 )
 
-target_link_directories(${PROJECT_NAME} PRIVATE vendor/GLFW/src)
-target_link_libraries(${PROJECT_NAME} PRIVATE glfw ${OPENGL_gl_LIBRARY})
+target_link_directories(${PROJECT_NAME} PRIVATE vendor/GLFW/src vendor/Glad/src)
+target_link_libraries(${PROJECT_NAME} PRIVATE glfw ${OPENGL_gl_LIBRARY} Glad)
 
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
   COMMAND "${CMAKE_COMMAND}" -E copy
