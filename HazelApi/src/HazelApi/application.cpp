@@ -26,6 +26,11 @@ namespace HazelApi
         {
             glClearColor(1,0,1,1);
             glClear(GL_COLOR_BUFFER_BIT);
+
+            for (Layer* layer : m_Layerstack)
+            {
+                layer->OnUpdate();
+            }
             m_Window->OnUpdate();
         }
     }
@@ -36,6 +41,25 @@ namespace HazelApi
 
         dispacther.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClosed));
         HZ_CORE_TRACE("{0}", e.ToString());
+
+        for(auto it = m_Layerstack.end(); it!=m_Layerstack.begin(); ++it)
+        {
+            (*--it)->OnEvent(e);
+            if(e.Handled)
+            {
+                break;
+            }
+        }
+    }
+
+    void Application::PushLayer(Layer *layer)
+    {
+        m_Layerstack.PushLayer(layer);
+    }
+
+    void Application::PushOverlay(Layer *layer)
+    {
+        m_Layerstack.PushOverlay(layer);
     }
 
     bool Application::OnWindowClosed(WindowCloseEvent &e)

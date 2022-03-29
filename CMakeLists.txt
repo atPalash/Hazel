@@ -17,6 +17,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #
 # The found projects are added to all_projects variable.
 set(all_projects "")
+
 function(find_projects)
     foreach(subdir IN LISTS ARGN)
         set(full_subdir "${CMAKE_CURRENT_SOURCE_DIR}/${subdir}")

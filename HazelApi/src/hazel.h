@@ -3,6 +3,7 @@
 
 // For use by Hazel applications
 #include "HazelApi/application.h"
+#include "HazelApi/layer.h"
 #include "HazelApi/log.h"
 
 

@@ -33,4 +33,10 @@ namespace HazelApi
 #define HZ_CLIENT_ERROR(...)  ::HazelApi::Log::GetClientLogger()->error(__VA_ARGS__)
 #define HZ_CLIENT_FATAL(...)  ::HazelApi::Log::GetClientLogger()->fatal(__VA_ARGS__)
 
+// Client log macros
+#define HZ_TRACE(...)         ::HazelApi::Log::GetClientLogger()->trace(__VA_ARGS__)
+#define HZ_INFO(...)          ::HazelApi::Log::GetClientLogger()->info(__VA_ARGS__)
+#define HZ_WARN(...)          ::HazelApi::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define HZ_ERROR(...)         ::HazelApi::Log::GetClientLogger()->error(__VA_ARGS__)
+#define HZ_CRITICAL(...)      ::HazelApi::Log::GetClientLogger()->critical(__VA_ARGS__)
 #endif // LOG_H
