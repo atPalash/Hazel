@@ -6,4 +6,4 @@
 	url = https://github.com/atPalash/glfw.git
 [submodule ".\\HazelApi\\vendor\\imgui"]
 	path = .\\HazelApi\\vendor\\imgui
-	url = https://github.com/TheCherno/imgui.git
+	url = https://github.com/atPalash/imgui.git
