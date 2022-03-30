@@ -8,4 +8,8 @@ namespace HazelApi {
     {
     }
 
+    Layer::~Layer()
+    {
+    }
+
 }

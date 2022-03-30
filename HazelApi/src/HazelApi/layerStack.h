@@ -10,7 +10,7 @@ namespace HazelApi {
     class HAZEL_API LayerStack
     {
     public:
-        LayerStack() = default;
+        LayerStack();
         ~LayerStack();
 
         void PushLayer(Layer* layer);
@@ -23,6 +23,7 @@ namespace HazelApi {
 
     private:
         std::vector<Layer*> m_Layers;
-        unsigned int m_LayerInsertIndex = 0;
+        std::vector<Layer*>::iterator m_LayerInsert;
+        //unsigned int m_LayerInsertIndex = 0;
     };
 }
