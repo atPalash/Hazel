@@ -1,0 +1,4 @@
+build/*
+HazelApi/CMakeLists.txt.user
+Sandbox/CMakeLists.txt.user
+CMakeLists.txt.user
