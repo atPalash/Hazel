@@ -10,8 +10,9 @@ file(GLOB_RECURSE SOURCES *.cpp)
 file(GLOB_RECURSE HEADERS *.h)
 
 add_executable(Sandbox ${HEADERS} ${SOURCES})
-target_include_directories(Sandbox PRIVATE ../HazelApi/src)
-target_link_libraries(Sandbox PRIVATE HazelApi)
+#target_include_directories(Sandbox PRIVATE ../HazelApi/src)
+target_link_directories(${PROJECT_NAME} PRIVATE HazelApi)
+target_link_libraries(${PROJECT_NAME} PRIVATE HazelApi)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

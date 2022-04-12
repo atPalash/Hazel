@@ -11,6 +11,9 @@ file(GLOB_RECURSE HEADERS src/*.h)
 
 add_library(HazelApi SHARED ${HEADERS} ${SOURCES})
 
+target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src"
+"${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include")
+
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
   COMMAND "${CMAKE_COMMAND}" -E copy
      $<TARGET_FILE:${PROJECT_NAME}>

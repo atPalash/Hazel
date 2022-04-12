@@ -1,7 +1,6 @@
 #include <iostream>
 #include <hazel.h>
 
-
 class SandBox : public HazelApi::Application
 {
 public:
