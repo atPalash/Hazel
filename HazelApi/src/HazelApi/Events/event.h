@@ -1,11 +1,8 @@
 #ifndef EVENT_H
 #define EVENT_H
 
-#include <string>
-#include <functional>
-#include <iostream>     // std::cout
-#include <sstream>      // std::stringstream
 #include "HazelApi/core.h"
+#include <functional>
 
 namespace HazelApi {
 
@@ -43,6 +40,7 @@ namespace HazelApi {
     {
         friend class EventDispatcher;
     public:
+        bool Handled = false;
         virtual EventType GetEventType() const = 0;
         virtual const char* GetName() const = 0;
         virtual int GetCategoryFlags() const = 0;
@@ -67,8 +65,8 @@ namespace HazelApi {
         }
 
         // F will be deduced by the compiler
-        template<typename T, typename F>
-        bool Dispatch(const F& func)
+        template<typename T>
+        bool Dispatch(EventFn<T> func)
         {
             if (m_Event.GetEventType() == T::GetStaticType())
             {
