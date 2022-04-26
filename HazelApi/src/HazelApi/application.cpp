@@ -42,7 +42,7 @@ namespace HazelApi
         dispacther.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClosed));
         HZ_CORE_TRACE("{0}", e.ToString());
 
-        for(auto it = m_Layerstack.end(); it!=m_Layerstack.begin(); ++it)
+        for(auto it = m_Layerstack.end(); it!=m_Layerstack.begin();)
         {
             (*--it)->OnEvent(e);
             if(e.Handled)

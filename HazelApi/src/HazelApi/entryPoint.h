@@ -8,6 +8,7 @@ extern HazelApi::Application* HazelApi::CreateApplication();
 
 int main(int argc, char** argv)
 {
+    HazelApi::Log::Init();
     auto app = HazelApi::CreateApplication();
     app->Run();
     delete app;
