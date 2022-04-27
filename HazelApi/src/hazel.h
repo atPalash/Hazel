@@ -5,6 +5,7 @@
 #include "HazelApi/application.h"
 #include "HazelApi/layer.h"
 #include "HazelApi/log.h"
+#include "HazelApi/ImGui/imGuiLayer.h"
 
 // ---- ENTRY POINT -----
 #include "HazelApi/entryPoint.h"
